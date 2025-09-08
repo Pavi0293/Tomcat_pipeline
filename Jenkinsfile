@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sshagent(['ec2-ssh-key']) {
+                 sshagent(['ubuntu-ssh-key']){
                     sh '''
                         scp -o StrictHostKeyChecking=no sample.war ubuntu@172.31.42.21:/opt/tomcat/tomcat10/webapps
                         scp -o StrictHostKeyChecking=no sample.war ubuntu@172.31.47.254:/opt/tomcat/tomcat10/webapps
